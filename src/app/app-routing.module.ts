@@ -4,7 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { MemberComponent } from './member/member.component';
 
 const routes: Routes = [
-  { path: '', component: MemberComponent },
+  { path: '', component: HomeComponent },
+  { path: 'member', component: MemberComponent },
 ];
 
 @NgModule({
