@@ -1,0 +1,24 @@
+[{"twitterInfo":
+    { "description":"",
+        "imageUrl":null},
+        "calculatedStage":"",
+        "_id":"5d81dcfcb18f3e0010f5040d",
+        "tags":[],
+        "details":{},
+        "calculatedStatus":"inactive",
+          "name":"Assignment demo",
+          "isSystem":true,
+          "office":"5d81dcfcb18f3e0010f50407",
+          "description":"",
+          "image":null,
+          "organization":"5d81dcfcb18f3e0010f503ef",
+          "createdAt":"2019-09-18T07:30:04.165Z",
+          "createdBy":"57ff8f4bfc882c14067cb2e7",
+          "modifiedAt":"2019-09-18T07:30:04.165Z",
+          "modifiedBy":"57ff8f4bfc882c14067cb2e7",
+          "isTeam":true,
+          "paymentDetails":[],
+          "cardType":null
+  },
+
+{"twitterInfo":{"description":"","imageUrl":null},"details":{"currency":null,"date":1},"calculatedStage":"","_id":"5d837099d4809b00104883ac","tags":[],"calculatedStatus":"drop-in","startDate":"2019-09-01T00:00:00.000Z","office":"5d81dcfcb18f3e0010f50407","name":"Los Angeles Lakers","email":"losangeles@lakers.com","description":"","image":"//dzrjcxtasfoip.cloudfront.net/user-resources/organization/assignment-demo-1568896225894.png","organization":"5d81dcfcb18f3e0010f503ef","createdAt":"2019-09-19T12:12:09.711Z","createdBy":"57ff8f4bfc882c14067cb2e7","modifiedAt":"2019-09-19T14:29:27.161Z","modifiedBy":"57ff8f4bfc882c14067cb2e7","isTeam":true,"paymentDetails":[],"cardType":null},{"twitterInfo":{"description":"","imageUrl":null},"details":{"currency":null,"date":19},"calculatedStage":"","_id":"5d8374f9d4809b00104883ee","tags":[],"calculatedStatus":"active","startDate":"2019-09-01T00:00:00.000Z","office":"5d839686e59be52704c30fbb","name":"Chicago Bulls","email":"chicago@bulls.com","description":"","image":"//dzrjcxtasfoip.cloudfront.net/user-resources/organization/assignment-demo-1568896285785.png","organization":"5d81dcfcb18f3e0010f503ef","createdAt":"2019-09-19T12:30:49.849Z","createdBy":"57ff8f4bfc882c14067cb2e7","modifiedAt":"2019-09-19T14:54:52.467Z","modifiedBy":"57ff8f4bfc882c14067cb2e7","isTeam":true,"paymentDetails":[],"cardType":null},{"twitterInfo":{"description":"","imageUrl":null},"details":{"currency":null,"date":1},"calculatedStage":"","_id":"5d8381c6d4809b0010495ffa","tags":[],"calculatedStatus":"lead","startDate":"2019-09-01T00:00:00.000Z","office":"5d81dcfcb18f3e0010f50407","name":"Boston Celtics","email":"boston@celtics.com","description":"","image":"//dzrjcxtasfoip.cloudfront.net/user-resources/organization/assignment-demo-1568899550128.png","organization":"5d81dcfcb18f3e0010f503ef","createdAt":"2019-09-19T13:25:26.143Z","createdBy":"57ff8f4bfc882c14067cb2e7","modifiedAt":"2019-09-19T14:30:41.296Z","modifiedBy":"57ff8f4bfc882c14067cb2e7","isTeam":true,"paymentDetails":[],"cardType":null}]
