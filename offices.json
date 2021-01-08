@@ -1,0 +1,15 @@
+[{"isOpen":true,
+    "public":true,
+    "targetRevenuePerPeriod":[],
+    "_id":"5d81dcfcb18f3e0010f50407",
+    "name":"West coast",
+    "slug":"west-coast",
+    "timezone":"America/Los_Angeles"},
+
+{"isOpen":true,
+  "public":true,
+  "targetRevenuePerPeriod":[],
+  "_id":"5d839686e59be52704c30fbb",
+  "name":"East coast",
+  "timezone":"America/New_York",
+  "slug":"east-coast"}]
