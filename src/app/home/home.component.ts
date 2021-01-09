@@ -26,7 +26,10 @@ export class HomeComponent implements OnInit {
     var baseApiUrl = ApiConfig.getBaseUrl();
     var headers = ApiConfig.getDefaultHeaders();
     this.http.get(`${baseApiUrl}/teams/`, {headers}).subscribe(res => {
-      console.log(res, 'response');
+      this.teams = res.map((team) => {
+        return new Team(team._id, team.name);
+      });
+      console.log(this.teams);
     });
     this.http.get(`${baseApiUrl}/offices/`, {headers}).subscribe(res => {
       console.log(res, 'response');

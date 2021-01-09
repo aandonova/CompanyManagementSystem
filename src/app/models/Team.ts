@@ -1,9 +1,9 @@
 export class Team {
-    // id: number;
+    id: number;
     name: string | undefined;
     
     constructor() {
-    //   this.id = 0;
+      this.id = 0;
           }
   }
   
