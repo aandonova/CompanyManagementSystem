@@ -21,11 +21,11 @@ export class MemberComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.route.params.subscribe((params) => {
-      this.http.get(`/api/members/`).subscribe(res => {
-        this.member = res as Member;
-      });
-    });
+    // this.route.params.subscribe((params) => {
+    //   this.http.get(`/api/members/`).subscribe(res => {
+    //     this.member = res as Member;
+    //   });
+    // });
   }
 }
 
