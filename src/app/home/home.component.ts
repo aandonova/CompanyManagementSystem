@@ -26,14 +26,18 @@ export class HomeComponent implements OnInit {
     var baseApiUrl = ApiConfig.getBaseUrl();
     var headers = ApiConfig.getDefaultHeaders();
     this.http.get(`${baseApiUrl}/teams/`, {headers}).subscribe(res => {
-      this.teams = res.map((team) => {
+      this.teams = res.map((team: { _id: number; name: string; }) => {
         return new Team(team._id, team.name);
       });
       console.log(this.teams);
     });
     this.http.get(`${baseApiUrl}/offices/`, {headers}).subscribe(res => {
-      console.log(res, 'response');
+      this.offices = res.map((office: { _id: number; name: string; }) => {
+        return new Office(office._id, office.name);
+      });
+      console.log(this.offices);
     });
+  
     this.http.get(`${baseApiUrl}/members/`, {headers}).subscribe(res => {
       console.log(res, 'response');
     });

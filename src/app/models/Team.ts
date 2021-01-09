@@ -1,11 +1,9 @@
 export class Team {
     id: number;
     name: string | undefined;
-    
-    constructor() {
-      this.id = 0;
-          }
+ 
+    constructor(id: number, name: string) {
+        this.id = id;
+        this.name = name;
+    }
   }
-  
-  
-  
