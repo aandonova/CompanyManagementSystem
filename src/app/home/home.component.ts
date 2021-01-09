@@ -25,13 +25,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     var baseApiUrl = ApiConfig.getBaseUrl();
     var headers = ApiConfig.getDefaultHeaders();
-    this.http.get(`${baseApiUrl}/members/`, {headers}).subscribe(res => {
-      console.log(res, 'response');
-    });
     this.http.get(`${baseApiUrl}/teams/`, {headers}).subscribe(res => {
       console.log(res, 'response');
     });
     this.http.get(`${baseApiUrl}/offices/`, {headers}).subscribe(res => {
+      console.log(res, 'response');
+    });
+    this.http.get(`${baseApiUrl}/members/`, {headers}).subscribe(res => {
       console.log(res, 'response');
     });
   }
