@@ -18,11 +18,13 @@
 		<button type="button" class="btn btn-filter">Filters</button>	
 	</div>
 
-	<div id="toolbar" >
-			<select class="form-control">
-					<option value=""placeholder="Location"> </option>
-					<option value="all">Export All</option>
-					<option value="selected">Export Selected</option>
+	<div id="toolbar">
+		<!-- *ngFor="let office of offices" -->
+			<select class="form-control" >
+				<option value=""placeholder="Location" > </option>
+				<option value="all">Export All</option>
+				<option value="selected">Export Selected</option>
+				<option >{{office.name}}</option>
 			</select>
 	</div>
 	<div id="toolbar">
@@ -33,38 +35,7 @@
 	</select>
 	</div>
 </div>
-
-<!-- <table id="table" 
-			 data-toggle="table"
-			 data-search="true"
-			 data-filter-control="true" 
-			 data-show-export="true"
-			 data-click-to-select="true"
-			 data-toolbar="#toolbar">
-	<thead>
-		<tr>
-			<th data-field="state" data-checkbox="true"></th>
-			<th data-field="prenom" data-filter-control="input" data-sortable="true">Member</th>
-			<th data-field="date" data-filter-control="select" data-sortable="true">Team</th>
-			<th data-field="examen" data-filter-control="select" data-sortable="true">Status/Label</th>
-      <th data-field="note" data-sortable="true">Created at</th>
-      <th data-field="note" data-filter-control="select" data-sortable="true">Location</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td class="bs-checkbox "><input data-index="0" name="btSelectItem" type="checkbox"></td>
-			<td>Valérie</td>
-			<td>01/09/2015</td>
-			<td>Français</td>
-			<td>12/20</td>
-		</tr>
-    
-	</tbody>
-</table> -->
-<!-- <pre>{{data | json}}</pre> -->
-
-<div class="container table">
+<div class="container table" >
 	<div class="row">
 	  <div class="col-12">
 		<table class="table table-striped">
@@ -82,6 +53,7 @@
 			</tr>
 		  </thead>
 		  <tbody>
+			<!-- *ngFor="let member of members" -->
 			<tr>
 			  <td>
 				<div class="custom-control custom-checkbox">
@@ -89,8 +61,8 @@
 					<label class="custom-control-label" for="customCheck1"></label>
 				</div>
 			  </td>
-			  <td>Bootstrap 4 CDN and Starter Template</td>
-			  <td>Cristina</td>
+			  <td>{{member.name}}</td>
+			  <td>{{team.name}}</td>
 			  <td>913</td>
 			  <td>2.846</td>
 			  <td>1.234</td>
@@ -102,23 +74,10 @@
 					<label class="custom-control-label" for="customCheck2"></label>
 				</div>
 			  </td>
-			  <td>Bootstrap Grid 4 Tutorial and Examples</td>
+			  <td>{{members.name}}</td>
 			  <td>Cristina</td>
 			  <td>1.434</td>
 			  <td>3.417</td>
-			  <td>1.234</td>
-			</tr>
-			<tr>
-			  <td>
-				<div class="custom-control custom-checkbox">
-					<input type="checkbox" class="custom-control-input" id="customCheck3">
-					<label class="custom-control-label" for="customCheck3"></label>
-				</div>
-			  </td>
-			  <td>Bootstrap Flexbox Tutorial and Examples</td>
-			  <td>Cristina</td>
-			  <td>1.877</td>
-			  <td>1.234</td>
 			  <td>1.234</td>
 			</tr>
 		  </tbody>

@@ -1,22 +1,36 @@
 export class Member {
-  id: number;
-  name: string | undefined;
-  email: string | undefined;
-  image: null;
-  createdAt: number;
-  team_id:number;
-  // team_name: string ;
-  startDate: number;
-  officeId: number;
-  // officeName: string ;
-
-  constructor() {
-    this.id = 0;
-    this.createdAt = 0;
-    this.team_id = 0;
-    this.startDate = 0;
-    this.officeId = 0;
+  id: string;
+  name: string;
+  email: string;
+  image: string;
+  createdAt: string;
+  teamId: string;
+  teamName: string | undefined;
+  startDate: string;
+  officeId: string;
+  officeName: string | undefined;
+ 
+  constructor(
+    id: string,
+    name: string,
+    email: string,
+    image: string,
+    createdAt: string,
+    teamId: string,
+    teamName: string | undefined,
+    startDate: string,
+    officeId: string,
+    officeName: string | undefined
+  ) {
+    this.id = id;
+    this.name = name;
+    this.email = email;
+    this.image = image;
+    this.createdAt = createdAt;
+    this.teamId = teamId;
+    this.teamName = teamName;
+    this.startDate = startDate;
+    this.officeId = officeId;
+    this.officeName = officeName;
   }
 }
-
-

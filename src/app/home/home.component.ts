@@ -39,7 +39,24 @@ export class HomeComponent implements OnInit {
     });
   
     this.http.get(`${baseApiUrl}/members/`, {headers}).subscribe(res => {
-      console.log(res, 'response');
+      this.members = res.map((member:any) => {
+        let teamName = this.teams.find(team => team.id === member.team)?.name;
+        let officeName = this.offices.find(office => office.id === member.office)?.name;
+ 
+        return new Member(
+          member._id,
+          member.name,
+          member.email,
+          member.image,
+          member.createdAt,
+          member.team,
+          teamName,
+          "", // Start date property
+          member.office,
+          officeName
+          );
+      });
+      console.log(this.members);
     });
   }
 }
