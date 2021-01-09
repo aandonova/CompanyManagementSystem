@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(
+    private http: HttpClient, 
+    private route: ActivatedRoute
+    ) {
+}
+ngOnInit(): void {
+  throw new Error("Method not implemented.");
+}
 }

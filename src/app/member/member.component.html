@@ -62,13 +62,18 @@
     
 	</tbody>
 </table> -->
+<pre>{{data | json}}</pre>
+
 <div class="container table">
 	<div class="row">
 	  <div class="col-12">
-		<table class="table table-bordered">
+		<table class="table table-striped">
 		  <thead>
 			<tr>
-			  <th scope="col custom-control-label">-</th>
+			  <th scope=" col custom-control-label" for="customCheck1">
+				<!-- <input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
+				<label class="custom-control-label" for="customCheck1"></label> -->
+			  </th>
 			  <th scope="col col-member">Member</th>
 			  <th scope="col">Team</th>
 			  <th scope="col">Status/Label</th>
@@ -80,7 +85,7 @@
 			<tr>
 			  <td>
 				<div class="custom-control custom-checkbox">
-					<input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+					<input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
 					<label class="custom-control-label" for="customCheck1"></label>
 				</div>
 			  </td>
