@@ -4,27 +4,34 @@
     <div class="row">
 </div>
 </div>
-<form class="form-inline">
-  <div class="input-group">                    
-      <input type="text" class="form-control" placeholder="Search">
-      <div class="input-group-append">
-          <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
-      </div>
-  </div>
-</form>
-  <div id="toolbar">
-		<select class="form-control">
-				<option value="">Location </option>
-				<option value="all">Export All</option>
-				<option value="selected">Export Selected</option>
-		</select>
-</div>
-<div id="toolbar">
-  <select class="form-control">
-      <option value="">Company </option>
-      <option value="all">Export All</option>
-      <option value="selected">Export Selected</option>
-  </select>
+<div class="row status-filter">
+	<form class="form-inline">
+		<div class="input-group">                    
+			<input type="text" class="form-control" placeholder="Search">
+			<div class="input-group-append">
+				<i class="fa fa-search"></i>
+				<button type="button" class="btn btn-secondary"></button>
+			</div>
+		</div>
+	</form>
+	<div class="">
+		<button type="button" class="btn btn-filter">Filters</button>	
+	</div>
+
+	<div id="toolbar" >
+			<select class="form-control">
+					<option value=""placeholder="Location"> </option>
+					<option value="all">Export All</option>
+					<option value="selected">Export Selected</option>
+			</select>
+	</div>
+	<div id="toolbar">
+	<select class="form-control">
+		<option value="">Company </option>
+		<option value="all">Export All</option>
+		<option value="selected">Export Selected</option>
+	</select>
+	</div>
 </div>
 
 <table id="table" 
@@ -52,7 +59,9 @@
 			<td>Français</td>
 			<td>12/20</td>
 		</tr>
-		
+    
 	</tbody>
 </table>
 </div>
+
+<router-outlet></router-outlet>
