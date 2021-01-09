@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Member } from '../models/Member';
+import { Team } from '../models/Team';
+import { Office } from '../models/Office';
 import { ApiConfig } from '../api-config';
  
 @Component({
@@ -10,9 +12,10 @@ import { ApiConfig } from '../api-config';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  //private offices: Office[]
-  //private teams: Team[]
+
   private members: Member[] = []
+  private teams: Team [] = []
+  private offices: Office [] = []
  
   constructor(
     private http: HttpClient, 
@@ -23,6 +26,12 @@ export class HomeComponent implements OnInit {
     var baseApiUrl = ApiConfig.getBaseUrl();
     var headers = ApiConfig.getDefaultHeaders();
     this.http.get(`${baseApiUrl}/members/`, {headers}).subscribe(res => {
+      console.log(res, 'response');
+    });
+    this.http.get(`${baseApiUrl}/team/`, {headers}).subscribe(res => {
+      console.log(res, 'response');
+    });
+    this.http.get(`${baseApiUrl}/office/`, {headers}).subscribe(res => {
       console.log(res, 'response');
     });
   }
