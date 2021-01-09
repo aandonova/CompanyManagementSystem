@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Member } from '../models/Member';
+import { Team } from '../models/Team';
+import { Office } from '../models/Office';
+
 
 @Component({
   selector: 'app-member',
@@ -12,12 +15,16 @@ import { Member } from '../models/Member';
 export class MemberComponent implements OnInit {
 
   member: Member;
+  team: Team;
+  office: Office;
 
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute)
     { 
       this.member = new Member();
+      this.team = new Team();
+      this.office = new Office();
     }
 
   ngOnInit() {
