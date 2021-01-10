@@ -32,6 +32,6 @@ h4 {
 .table-image td, .table-image th {
     vertical-align: middle;
   }
-thead th.col-member {
-    width: 200px !important;
-}
+  .custom-control-input:checked~.custom-control-label::before {
+      background-color: #2e3ed0;
+  }

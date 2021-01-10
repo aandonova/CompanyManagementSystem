@@ -12,5 +12,21 @@
     margin-right: 15px;
 }
 .navbar-expand-sm .navbar-nav .nav-link {
-    color: grey;
+    color: #959597;
+}
+a.nav-link:hover {
+	/* text-decoration: underline; */
+	color: #2e55d0;
+	border-bottom: 2px solid #2e55d0;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #2e3ed0;
+    border-color: #2e3ed0;
+}
+.btn-danger {
+    color: #fff;
+    background-color: #c72929;
+    border-color: #c72929;
 }
