@@ -14,12 +14,13 @@ import { ApiConfig } from '../api-config';
 export class HomeComponent implements OnInit {
  
   members: Member[] = []
-  private teams: Team [] = []
-  private offices: Office [] = []
+  public teams: Team [] = []
+  public offices: Office [] = []
  
   constructor(
     private http: HttpClient, 
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+      ) {
   }
  
   ngOnInit(): void {

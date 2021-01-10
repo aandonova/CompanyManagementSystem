@@ -39,21 +39,15 @@
 			<button type="button" class="btn btn-filter">Filters</button>	
 		</div>
  
-		<div id="toolbar">
-			<!-- *ngFor="let office of offices" -->
-				<select class="form-control" >
-					<option value=""placeholder="Location" > </option>
-					<option value="all">Export All</option>
-					<option value="selected">Export Selected</option>
-					<!-- <option >{{office.name}}</option> -->
+		<div class="toolbar">
+				<select class="form-control" *ngFor="let office of offices"  >
+					  <option  id="{{office.id}}" value="" placeholder="Location">{{office.name}} </option>
 				</select>
 		</div>
-		<div id="toolbar">
-		<select class="form-control">
-			<option value="">Company </option>
-			<option value="all">Export All</option>
-			<option value="selected">Export Selected</option>
-		</select>
+		<div class="toolbar2" placeholder="Company" >
+      <select class="form-control" *ngFor="let team of teams" >
+        <option  id="{{team.id}}" value="" placeholder="Company" >{{team.name}} </option>
+      </select>
 		</div>
 	</div>
 	<div class="container table" >
