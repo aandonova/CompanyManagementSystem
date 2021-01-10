@@ -9,6 +9,7 @@ export class Member {
   startDate: string;
   officeId: string;
   officeName: string | undefined;
+  calculatedStatus: string;
  
   constructor(
     id: string,
@@ -20,7 +21,8 @@ export class Member {
     teamName: string | undefined,
     startDate: string,
     officeId: string,
-    officeName: string | undefined
+    officeName: string | undefined,
+    calculatedStatus: string
   ) {
     this.id = id;
     this.name = name;
@@ -32,5 +34,6 @@ export class Member {
     this.startDate = startDate;
     this.officeId = officeId;
     this.officeName = officeName;
+    this.calculatedStatus = calculatedStatus;
   }
 }

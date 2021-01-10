@@ -5,6 +5,7 @@ import { Member } from '../models/Member';
 import { Team } from '../models/Team';
 import { Office } from '../models/Office';
 import { ApiConfig } from '../api-config';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
  
 @Component({
   selector: 'app-home',
@@ -19,10 +20,16 @@ export class HomeComponent implements OnInit {
   public offices: Office [] = [];
   public selectedOffice: string = "all";
   public selectedTeam: string = "all";
+  public leadMemberStatusCount: number = 0;
+  public dropInMemberStatusCount: number = 0;
+  public activeMemberStatusCount: number = 0;
+  public formerMemberStatusCount: number = 0;
+  public allMemberStatusCount: number = 0;
+  closeResult = '';
  
   constructor(
     private http: HttpClient, 
-    private route: ActivatedRoute) {
+    private modalService: NgbModal) {
   }
  
   ngOnInit(): void {
@@ -59,12 +66,22 @@ export class HomeComponent implements OnInit {
           teamName,
           "", // Start date property
           member.office,
-          officeName
+          officeName,
+          member.calculatedStatus
           );
       });
       this.gridMembers = this.members.slice();
+      this.setStatusFiltersData();
       console.log(this.members);
     });
+  }
+ 
+  private setStatusFiltersData() {
+    this.leadMemberStatusCount = this.members.filter(m => m.calculatedStatus === "lead").length;
+    this.dropInMemberStatusCount = this.members.filter(m => m.calculatedStatus === "drop-in").length;
+    this.activeMemberStatusCount = this.members.filter(m => m.calculatedStatus === "active").length;
+    this.formerMemberStatusCount = this.members.filter(m => m.calculatedStatus === "former").length;
+    this.allMemberStatusCount = this.leadMemberStatusCount + this.dropInMemberStatusCount + this.activeMemberStatusCount + this.formerMemberStatusCount;
   }
  
   onOfficeFilterChange(value:string) {
@@ -84,6 +101,24 @@ export class HomeComponent implements OnInit {
       this.gridMembers = this.members.filter(m => m.teamId === this.selectedTeam).slice();
     } else {
       this.gridMembers = this.members.filter(m => m.officeId === this.selectedOffice && m.teamId === this.selectedTeam).slice();
+    }
+  }
+ 
+  open(content:any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+ 
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
     }
   }
 }

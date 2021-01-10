@@ -1,24 +1,24 @@
 <nav class="container navbar navbar-expand-sm bg-light justify-content-center">
   <ul class="navbar-nav">
     <li class="nav-item grey">
-      <a class="nav-link" href="#">All</a>
+      <a class="nav-link active" href="#">All {{allMemberStatusCount}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Lead</a>
+      <a class="nav-link" href="#">Lead {{leadMemberStatusCount}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Drop In</a>
+      <a class="nav-link" href="#">Drop In {{dropInMemberStatusCount}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Active</a>
+      <a class="nav-link" href="#">Active {{activeMemberStatusCount}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Former</a>
+      <a class="nav-link" href="#">Former {{formerMemberStatusCount}}</a>
     </li>
   </ul>
   <div class="navbar-nav-right ml-auto">
     <button type="button" class="btn btn-danger space">Delete</button>
-    <button class="btn btn-primary" type="submit">Add Member</button>
+    <button class="btn btn-primary" (click)="open(content)">Add Member</button>
   </div>
 </nav>
 <div class="container wrapper">
@@ -60,9 +60,11 @@
 				<table class="table table-striped">
 				<thead>
 					<tr>
-					<th scope="col custom-control-label" for="customCheck1">
-						<input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
-						<label class="custom-control-label" for="customCheck1"></label>
+					<th scope="col">
+						<div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
+              <label class="custom-control-label" for="customCheck1"></label>
+            </div>
           </th>
 					<th scope="col col-member">Member</th>
 					<th scope="col">Team</th>
@@ -72,25 +74,29 @@
 					</tr>
 				</thead>
 				<tbody>
-			<tr *ngFor="let member of this.gridMembers" [member]="member">
-				<td>
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
-						<label class="custom-control-label" for="customCheck1"></label>
-					</div>
-				</td>
-				<td>{{member.name}}</td>
-				<td>{{member.teamName}}</td>
-				<td>913</td>
-				<td>2.846</td>
-				<td>1.234</td>				
-			</tr>
-					<!-- The ngFor for every member -->
-					<!-- <app-member ></app-member> -->
+          <!-- The ngFor for every member -->
+          <tr *ngFor="let member of this.gridMembers">
+            <td>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td>
+              <img class="grid-member-img" src="{{member.image}}" alt="Member image">
+              <span>{{member.name}}</span>
+            </td>
+            <td>{{member.teamName}}</td>
+            <td>{{member.calculatedStatus}}</td>
+            <td>{{member.createdAt}}</td>
+            <td>{{member.officeName}}</td>
+          </tr>
 				</tbody>
 				</table>
 			</div>
 		</div>
   </div>
 </div>
- 
+<ng-template #content let-modal>
+  <member-form [offices]="offices" [teams]="teams"></member-form>
+</ng-template>
