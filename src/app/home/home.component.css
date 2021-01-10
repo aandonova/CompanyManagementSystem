@@ -67,3 +67,6 @@ h4 {
   .custom-control-input:checked~.custom-control-label::before {
       background-color: #2e3ed0;
   }
+.custom-control-label {
+	width: 30px;
+}

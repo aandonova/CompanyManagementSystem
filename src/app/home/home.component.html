@@ -36,7 +36,7 @@
 			</div>
 		</form>
 		<div class="">
-			<button type="button" class="btn btn-filter">Filters</button>	
+			<button type="button" (click)="onClick($event)" class="btn btn-filter">Filters</button>	
 		</div>
  
 		<div class="toolbar">
@@ -65,10 +65,10 @@
 				<table class="table table-striped">
 				<thead>
 					<tr>
-					<th scope=" col custom-control-label" for="customCheck1">
+					<th scope="col custom-control-label" for="customCheck1">
 						<input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
 						<label class="custom-control-label" for="customCheck1"></label>
-					</th>
+          </th>
 					<th scope="col col-member">Member</th>
 					<th scope="col">Team</th>
 					<th scope="col">Status/Label</th>
