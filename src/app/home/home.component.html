@@ -40,22 +40,21 @@
 		</div>
  
 		<div class="toolbar">
-				<select class="form-control"  >
+				<select class="form-control" *ngFor="let office of offices">
             <option  
               id="{{office.id}}" value="" 
-              placeholder="Location" 
-              *ngFor="let office of offices" 
+              placeholder="Location"   
               [ngValue]="teamvalue"
               >{{office.name}} 
             </option>
 				</select>
 		</div>
 		<div class="toolbar2" placeholder="Company" >
-      <select class="form-control"  >
+      <select class="form-control" *ngFor="let team of teams">
         <option  
           id="{{team.id}}" 
-          value="" placeholder="Company"
-          *ngFor="let team of teams"
+          value="" 
+          placeholder="Company"
          >{{team.name}} </option>
       </select>
 		</div>
