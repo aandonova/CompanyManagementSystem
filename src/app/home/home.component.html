@@ -21,10 +21,7 @@
     <button class="btn btn-primary" type="submit">Add Member</button>
   </div>
 </nav>
-<div class="wrapper">
-  <div class="container">
-    <div class="row"></div>
-	</div>
+<div class="container wrapper">
 	<div class="row status-filter">
 		<form class="form-inline">
 			<div class="input-group">                    
@@ -36,26 +33,24 @@
 			</div>
 		</form>
 		<div class="">
-			<button type="button" (click)="onClick($event)" class="btn btn-filter">Filters</button>	
+			<button type="button" (click)="onFilterGrid($event)" class="btn btn-filter">Filters</button>	
 		</div>
  
 		<div class="toolbar">
-				<select class="form-control" *ngFor="let office of offices">
-            <option  
-              id="{{office.id}}" value="" 
-              placeholder="Location"   
-              [ngValue]="teamvalue"
-              >{{office.name}} 
-            </option>
-				</select>
+      <select class="form-control" (change)="onOfficeFilterChange($event.target.value)">
+          <option value="all" selected>All</option>
+          <option *ngFor="let office of offices"
+            value="{{office.id}}"
+            >{{office.name}} 
+          </option>
+      </select>
 		</div>
-		<div class="toolbar2" placeholder="Company" >
-      <select class="form-control" *ngFor="let team of teams">
-        <option  
-          id="{{team.id}}" 
-          value="" 
-          placeholder="Company"
-         >{{team.name}} </option>
+		<div class="toolbar2">
+      <select class="form-control" (change)="onTeamFilterChange($event.target.value)">
+        <option value="all" selected>All</option>
+        <option *ngFor="let team of teams"
+          value="{{team.id}}"
+         >{{team.name}}</option>
       </select>
 		</div>
 	</div>
@@ -78,10 +73,11 @@
 				</thead>
 				<tbody>
 					<!-- The ngFor for every member -->
-					<app-member *ngFor="let member of this.members" [member]="member"></app-member>
+					<app-member *ngFor="let member of this.gridMembers" [member]="member"></app-member>
 				</tbody>
 				</table>
 			</div>
 		</div>
   </div>
 </div>
+ 

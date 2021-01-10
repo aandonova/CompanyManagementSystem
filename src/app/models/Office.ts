@@ -1,8 +1,8 @@
 export class Office {
-    id: number;
+    id: string;
     name: string | undefined;
  
-    constructor(id: number, name: string) {
+    constructor(id: string, name: string) {
         this.id = id;
         this.name = name;
     }
