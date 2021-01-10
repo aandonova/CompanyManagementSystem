@@ -72,8 +72,21 @@
 					</tr>
 				</thead>
 				<tbody>
+			<tr *ngFor="let member of this.gridMembers" [member]="member">
+				<td>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
+						<label class="custom-control-label" for="customCheck1"></label>
+					</div>
+				</td>
+				<td>{{member.name}}</td>
+				<td>{{member.teamName}}</td>
+				<td>913</td>
+				<td>2.846</td>
+				<td>1.234</td>				
+			</tr>
 					<!-- The ngFor for every member -->
-					<app-member *ngFor="let member of this.gridMembers" [member]="member"></app-member>
+					<!-- <app-member ></app-member> -->
 				</tbody>
 				</table>
 			</div>
