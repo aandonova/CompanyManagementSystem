@@ -7,7 +7,7 @@
       <a class="nav-link" href="#">Lead {{leadMemberStatusCount}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Drop In {{dropInMemberStatusCount}}</a>
+      <a class="nav-link" href="#">Drop-In {{dropInMemberStatusCount}}</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Active {{activeMemberStatusCount}}</a>
@@ -61,9 +61,9 @@
 				<thead>
 					<tr>
 					<th scope="col">
-						<div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
-              <label class="custom-control-label" for="customCheck1"></label>
+						<div class="custom-control custom-checkbox"  >
+              <input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked >
+              <label class="custom-control-label"  for="customCheck1"></label>
             </div>
           </th>
 					<th scope="col col-member">Member</th>
@@ -75,11 +75,15 @@
 				</thead>
 				<tbody>
           <!-- The ngFor for every member -->
-          <tr *ngFor="let member of this.gridMembers">
+          <tr *ngFor="let member of this.gridMembers | slice:0:20 ">
             <td>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
-                <label class="custom-control-label" for="customCheck1"></label>
+              <div class="custom-control custom-checkbox"  >
+                <!-- <input type="checkbox" class="custom-control-input" [value]="true" [checked]="member.id"  > -->
+                
+                <!-- <label class="custom-control-label" for="customCheck2"  ></label> -->
+                <!-- <input type="checkbox" [checked]="member.status" (change)="changeStatus(member.id,$event)"> -->
+
+                <input class="custom-checkbox-id" value="{{member.id}}" type="checkbox" checked="member.id">
               </div>
             </td>
             <td>
