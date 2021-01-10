@@ -18,7 +18,7 @@
 		<button type="button" class="btn btn-filter">Filters</button>	
 	</div>
 
-	<div id="toolbar">
+	<div class="toolbar">
 		<!-- *ngFor="let office of offices" -->
 			<select class="form-control" >
 				<option value=""placeholder="Location" > </option>
@@ -27,7 +27,7 @@
 				<option >{{office.name}}</option>
 			</select>
 	</div>
-	<div id="toolbar">
+	<div class="toolbar">
 	<select class="form-control">
 		<option value="">Company </option>
 		<option value="all">Export All</option>
@@ -41,46 +41,33 @@
 		<table class="table table-striped">
 		  <thead>
 			<tr>
-			  <th scope=" col custom-control-label" for="customCheck1">
-				<!-- <input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
-				<label class="custom-control-label" for="customCheck1"></label> -->
-			  </th>
-			  <th scope="col col-member">Member</th>
-			  <th scope="col">Team</th>
-			  <th scope="col">Status/Label</th>
-			  <th scope="col">Created At</th>
-			  <th scope="col">Location</th>
+				<td>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
+						<label class="custom-control-label" for="customCheck1"></label>
+					</div>
+				</td>
+				<td>{{member.name}}</td>
+				<td>{{member.teamName}}</td>
+				<td>913</td>
+				<td>2.846</td>
+				<td>1.234</td>
+				</tr>
+				<tr>
+				<td>
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="customCheck2">
+						<label class="custom-control-label" for="customCheck2"></label>
+					</div>
+				</td>
+				<td>{{member.name}}</td>
+				<td>Cristina</td>
+				<td>1.434</td>
+				<td>3.417</td>
+				<td>1.234</td>
 			</tr>
 		  </thead>
-		  <tbody>
-			<!-- *ngFor="let member of members" -->
-			<tr>
-			  <td>
-				<div class="custom-control custom-checkbox">
-					<input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
-					<label class="custom-control-label" for="customCheck1"></label>
-				</div>
-			  </td>
-			  <td>{{member.name}}</td>
-			  <td>{{team.name}}</td>
-			  <td>913</td>
-			  <td>2.846</td>
-			  <td>1.234</td>
-			</tr>
-			<tr>
-			  <td>
-				<div class="custom-control custom-checkbox">
-					<input type="checkbox" class="custom-control-input" id="customCheck2">
-					<label class="custom-control-label" for="customCheck2"></label>
-				</div>
-			  </td>
-			  <td>{{members.name}}</td>
-			  <td>Cristina</td>
-			  <td>1.434</td>
-			  <td>3.417</td>
-			  <td>1.234</td>
-			</tr>
-		  </tbody>
+		 
 		</table>
 	  </div>
 	</div>

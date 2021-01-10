@@ -1,30 +1,84 @@
 <nav class="container navbar navbar-expand-sm bg-light justify-content-center">
-    <ul class="navbar-nav">
-      <li class="nav-item grey">
-        <a class="nav-link" href="#">All</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Lead</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Drop In</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Former</a>
-      </li>
-    </ul>
-    <div class="navbar-nav-right ml-auto">
-      <button type="button" class="btn btn-danger space">Delete</button>
-      <button class="btn btn-primary" type="submit">Add Member</button>
+  <ul class="navbar-nav">
+    <li class="nav-item grey">
+      <a class="nav-link" href="#">All</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Lead</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Drop In</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Former</a>
+    </li>
+  </ul>
+  <div class="navbar-nav-right ml-auto">
+    <button type="button" class="btn btn-danger space">Delete</button>
+    <button class="btn btn-primary" type="submit">Add Member</button>
   </div>
-  </nav>
-  <app-member></app-member>
-
-  <!-- <a class="card"
-  rel="noopener"
-    routerLink="/member"
-  ></a>
-   -->
+</nav>
+<div class="wrapper">
+  <div class="container">
+    <div class="row"></div>
+	</div>
+	<div class="row status-filter">
+		<form class="form-inline">
+			<div class="input-group">                    
+				<input type="text" class="form-control" placeholder="Search">
+				<div class="input-group-append">
+					<i class="fa fa-search"></i>
+					<button type="button" class="btn btn-secondary"></button>
+				</div>
+			</div>
+		</form>
+		<div class="">
+			<button type="button" class="btn btn-filter">Filters</button>	
+		</div>
+ 
+		<div id="toolbar">
+			<!-- *ngFor="let office of offices" -->
+				<select class="form-control" >
+					<option value=""placeholder="Location" > </option>
+					<option value="all">Export All</option>
+					<option value="selected">Export Selected</option>
+					<!-- <option >{{office.name}}</option> -->
+				</select>
+		</div>
+		<div id="toolbar">
+		<select class="form-control">
+			<option value="">Company </option>
+			<option value="all">Export All</option>
+			<option value="selected">Export Selected</option>
+		</select>
+		</div>
+	</div>
+	<div class="container table" >
+		<div class="row">
+			<div class="col-12">
+				<table class="table table-striped">
+				<thead>
+					<tr>
+					<th scope=" col custom-control-label" for="customCheck1">
+						<!-- <input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked>
+						<label class="custom-control-label" for="customCheck1"></label> -->
+					</th>
+					<th scope="col col-member">Member</th>
+					<th scope="col">Team</th>
+					<th scope="col">Status/Label</th>
+					<th scope="col">Created At</th>
+					<th scope="col">Location</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- The ngFor for every member -->
+					<app-member *ngFor="let member of this.members" [member]="member"></app-member>
+				</tbody>
+				</table>
+			</div>
+		</div>
+  </div>
+</div>

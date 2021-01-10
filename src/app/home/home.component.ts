@@ -12,8 +12,8 @@ import { ApiConfig } from '../api-config';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  private members: Member[] = []
+ 
+  members: Member[] = []
   private teams: Team [] = []
   private offices: Office [] = []
  
@@ -26,20 +26,23 @@ export class HomeComponent implements OnInit {
     var baseApiUrl = ApiConfig.getBaseUrl();
     var headers = ApiConfig.getDefaultHeaders();
     this.http.get(`${baseApiUrl}/teams/`, {headers}).subscribe(res => {
-      this.teams = res.map((team: { _id: number; name: string; }) => {
+      var response = res as any[];
+      this.teams = response.map((team: { _id: number; name: string; }) => {
         return new Team(team._id, team.name);
       });
       console.log(this.teams);
     });
     this.http.get(`${baseApiUrl}/offices/`, {headers}).subscribe(res => {
-      this.offices = res.map((office: { _id: number; name: string; }) => {
+      var response = res as any[];
+      this.offices = response.map((office: { _id: number; name: string; }) => {
         return new Office(office._id, office.name);
       });
       console.log(this.offices);
     });
-  
+ 
     this.http.get(`${baseApiUrl}/members/`, {headers}).subscribe(res => {
-      this.members = res.map((member:any) => {
+      var response = res as any[];
+      this.members = response.map((member:any) => {
         let teamName = this.teams.find(team => team.id === member.team)?.name;
         let officeName = this.offices.find(office => office.id === member.office)?.name;
  
