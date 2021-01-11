@@ -58,25 +58,37 @@
 		<div class="row">
 			<div class="col-12">
 				<table class="table table-striped">
-				<thead>
-					<tr>
-					<th scope="col">
-						<div class="custom-control custom-checkbox"  >
-              <input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked >
-              <label class="custom-control-label"  for="customCheck1"></label>
-            </div>
-          </th>
-					<th scope="col col-member">Member</th>
-					<th scope="col">Team</th>
-					<th scope="col">Status/Label</th>
-					<th scope="col">Created At</th>
-					<th scope="col">Location</th>
-					</tr>
-				</thead>
+          <thead>
+            <tr>
+              <th>  
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" (change)="selectAll()">
+                  <label class="form-check-label"></label>
+                </div>
+              </th>
+              <th scope="col">
+              <div class="custom-control custom-checkbox"  >
+                <input type="checkbox" class="custom-control-input" id="customCheck1" [value]="true" checked >
+              </div>
+              </th>
+              <th scope="col col-member">Member</th>
+              <th scope="col">Team</th>
+              <th scope="col">Status/Label</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Location</th>
+            </tr>
+          </thead>
 				<tbody>
+            
           <!-- The ngFor for every member -->
           <tr *ngFor="let member of this.gridMembers | slice:0:20 ">
             <td>
+            <div class="form-check" >
+                <input class="form-check-input" type="checkbox" value="{{member.id}}" [(ngModel)]="selectedAll" (change)="checkIfAllSelected()">
+                <label class="form-check-label">
+                   
+                  </label>
+            </div>
               <div class="custom-control custom-checkbox"  >
                 <!-- <input type="checkbox" class="custom-control-input" [value]="true" [checked]="member.id"  > -->
                 

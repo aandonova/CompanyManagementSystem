@@ -78,11 +78,9 @@ h4 {
     vertical-align: middle;
   }
   .custom-control-input:checked~.custom-control-label::before {
-      background-color: #2e3ed0;
+	  background-color: #2e3ed0;
+	  padding-left: 1.5rem;
   }
 .custom-control-label {
 	width: 30px;
-}
-.custom-checkbox-id::before {
-	background-color: #2e3ed0;
 }

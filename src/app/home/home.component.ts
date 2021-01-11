@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   public activeMemberStatusCount: number = 0;
   public formerMemberStatusCount: number = 0;
   public allMemberStatusCount: number = 0;
+
   closeResult = '';
  
   constructor(
@@ -104,6 +105,17 @@ export class HomeComponent implements OnInit {
     }
   }
  
+  selectAll() {
+    for (var i = 0; i < this.members.length; i++) {
+    this.members[i].selected = true;
+    }
+  }
+  checkIfAllSelected() {
+    this.selectAll = this.gridMembers.every(function(item:any) {
+        return item.selected == true;
+      })
+  }
+
   open(content:any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

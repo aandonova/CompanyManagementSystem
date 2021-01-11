@@ -10,6 +10,7 @@ export class Member {
   officeId: string;
   officeName: string | undefined;
   calculatedStatus: string;
+  selected: boolean;
  
   constructor(
     id: string,
@@ -22,7 +23,8 @@ export class Member {
     startDate: string,
     officeId: string,
     officeName: string | undefined,
-    calculatedStatus: string
+    calculatedStatus: string,
+    selected: boolean
   ) {
     this.id = id;
     this.name = name;
@@ -35,5 +37,6 @@ export class Member {
     this.officeId = officeId;
     this.officeName = officeName;
     this.calculatedStatus = calculatedStatus;
+    this.selected = selected;
   }
 }
