@@ -12,7 +12,6 @@ export class Member {
   calculatedStatus: string;
   selected: boolean = false;
 
- 
   constructor(
     id: string,
     name: string,
