@@ -17,7 +17,7 @@
     </li>
   </ul>
   <div class="navbar-nav-right ml-auto">
-    <button type="button" class="btn btn-danger space">Delete</button>
+    <button type="button" [disabled]="membersMarkedForDeletion.length === 0" class="btn btn-danger space" (click)="open(deleteMember)">Delete</button>
     <button class="btn btn-primary" (click)="open(content)">Add Member</button>
   </div>
 </nav>
@@ -63,8 +63,7 @@
               <th>  
                 <div class="form-check">
                   <label class="form-check-label"></label>
-                  <input type="checkbox" (change)="selectAll()">
-                 
+                  <input type="checkbox" (change)="onMemberAllSelection($event)">
                 </div>
               </th> 
               <th scope="col col-member">Member</th>
@@ -75,12 +74,12 @@
             </tr>
           </thead>
 				<tbody>
-            
+ 
           <!-- The ngFor for every member -->
           <tr *ngFor="let member of this.gridMembers | slice:0:20 ">
             <td>
             <div class="form-check" >
-                <input class="form-check" type="checkbox" value="{{member.id}}"  >
+                <input class="form-check" type="checkbox" [checked]="member.selected" value="{{member.id}}" (change)="onMemberSelection($event)" />
                 <label class="form-check"></label>
             </div>
             </td>
@@ -90,7 +89,7 @@
             </td>
             <td>{{member.teamName}}</td>
             <td>{{member.calculatedStatus}}</td>
-            <td>{{member.createdAt}}</td>
+            <td>{{member.createdAt | date : 'dd-MM-yyyy'}}</td>
             <td>{{member.officeName}}</td>
           </tr>
 				</tbody>
@@ -101,4 +100,18 @@
 </div>
 <ng-template #content let-modal>
   <member-form [offices]="offices" [teams]="teams"></member-form>
+</ng-template>
+<ng-template #deleteMember let-modal>
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Delete member</h4>
+</div>
+<div class="modal-body">
+  <p>Are you sure you want to delete the selected members?</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-light" aria-label="No" (click)="modal.dismiss()">
+      <span aria-hidden="true">No</span>
+  </button>
+  <button type="button" class="btn btn-outline-dark" (click)="deleteMembers(modal)">Yes</button>
+</div>
 </ng-template>

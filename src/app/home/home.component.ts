@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
 import { Member } from '../models/Member';
 import { Team } from '../models/Team';
 import { Office } from '../models/Office';
@@ -25,7 +24,8 @@ export class HomeComponent implements OnInit {
   public activeMemberStatusCount: number = 0;
   public formerMemberStatusCount: number = 0;
   public allMemberStatusCount: number = 0;
-
+  public membersMarkedForDeletion: Member[] = [];
+ 
   closeResult = '';
  
   constructor(
@@ -41,14 +41,12 @@ export class HomeComponent implements OnInit {
       this.teams = response.map((team: { _id: number; name: string; }) => {
         return new Team(team._id, team.name);
       });
-      console.log(this.teams);
     });
     this.http.get(`${baseApiUrl}/offices/`, {headers}).subscribe(res => {
       var response = res as any[];
       this.offices = response.map((office: { _id: string; name: string; }) => {
         return new Office(office._id, office.name);
       });
-      console.log(this.offices);
     });
  
     this.http.get(`${baseApiUrl}/members/`, {headers}).subscribe(res => {
@@ -73,7 +71,6 @@ export class HomeComponent implements OnInit {
       });
       this.gridMembers = this.members.slice();
       this.setStatusFiltersData();
-      console.log(this.members);
     });
   }
  
@@ -105,17 +102,48 @@ export class HomeComponent implements OnInit {
     }
   }
  
-  selectAll() {
-    for (var i = 0; i < this.members.length; i++) {
-    this.members[i].selected = true;
+  onMemberAllSelection(event:any) {
+    if (event.target.checked) {
+      this.membersMarkedForDeletion = [];
+      this.membersMarkedForDeletion = this.gridMembers.slice();
+      this.gridMembers.forEach((member) => {
+        member.selected = true;
+      });
+    } else {
+      this.membersMarkedForDeletion = [];
+      this.gridMembers.forEach((member) => {
+        member.selected = false;
+      });
     }
   }
-  checkIfAllSelected() {
-    this.selectAll = this.gridMembers.every(function(item:any) {
-        return item.selected == true;
-      })
+ 
+  onMemberSelection(event:any) {
+    let memberId = event.target.value;
+    if (event.target.checked) {
+      let findMember = this.gridMembers.find(m => m.id === memberId);
+      if (findMember !== undefined) {
+        this.membersMarkedForDeletion.push(findMember);
+      }
+    } else {
+      this.membersMarkedForDeletion = this.membersMarkedForDeletion.filter(m => m.id !== memberId);
+    }
   }
-
+ 
+  deleteMembers(modal:any) {
+    this.membersMarkedForDeletion.forEach((member) => {
+      var baseApiUrl = ApiConfig.getBaseUrl();
+      var headers = ApiConfig.getDefaultHeaders();
+      this.http.delete(`${baseApiUrl}/members/${member.id}`, {headers}).subscribe(res => {
+        let response = res as { _id: string };
+        if (response._id === member.id) {
+          this.gridMembers = this.gridMembers.filter(m => m.id !== member.id);
+        }
+      });
+ 
+      modal.dismiss();
+    });
+  }
+ 
   open(content:any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

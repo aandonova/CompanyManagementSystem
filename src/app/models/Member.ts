@@ -10,7 +10,8 @@ export class Member {
   officeId: string;
   officeName: string | undefined;
   calculatedStatus: string;
-  selected: boolean;
+  selected: boolean = false;
+
  
   constructor(
     id: string,
@@ -23,9 +24,8 @@ export class Member {
     startDate: string,
     officeId: string,
     officeName: string | undefined,
-    calculatedStatus: string,
-    selected: boolean
-  ) {
+    calculatedStatus: string
+      ) {
     this.id = id;
     this.name = name;
     this.email = email;
@@ -37,6 +37,5 @@ export class Member {
     this.officeId = officeId;
     this.officeName = officeName;
     this.calculatedStatus = calculatedStatus;
-    this.selected = selected;
   }
 }
