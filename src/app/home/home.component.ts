@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   public formerMemberStatusCount: number = 0;
   public allMemberStatusCount: number = 0;
   public membersMarkedForDeletion: Member[] = [];
+  public activeFilter: string = "all";
  
   closeResult = '';
  
@@ -90,15 +91,31 @@ export class HomeComponent implements OnInit {
     this.selectedTeam = value;
   }
  
-  onFilterGrid(event:any) {
-    if (this.selectedOffice === "all" && this.selectedTeam === "all") {
-      this.gridMembers = this.members.slice();
+  onFilterGrid() {
+    this.onFilter();
+  }
+ 
+  onFilterStatusClick(filter:string) {
+    this.activeFilter = filter;
+    this.onFilter();
+  }
+ 
+  onFilter() {
+    let filteredMembers = this.members.slice();
+    if (this.selectedOffice !== "all" && this.selectedTeam !== "all") {
+      filteredMembers = filteredMembers.filter(m => m.officeId === this.selectedOffice && m.teamId === this.selectedTeam).slice();
     } else if (this.selectedOffice !== "all" && this.selectedTeam === "all") {
-      this.gridMembers = this.members.filter(m => m.officeId === this.selectedOffice).slice();
+      filteredMembers = filteredMembers.filter(m => m.officeId === this.selectedOffice).slice();
     } else if (this.selectedOffice === "all" && this.selectedTeam !== "all") {
-      this.gridMembers = this.members.filter(m => m.teamId === this.selectedTeam).slice();
+      filteredMembers = filteredMembers.filter(m => m.teamId === this.selectedTeam).slice();
+    }
+    
+    if (this.activeFilter === "all") {
+      this.gridMembers = filteredMembers.slice();
+    } else if (this.activeFilter === "dropIn") {
+      this.gridMembers = filteredMembers.filter(m => m.calculatedStatus === "drop-in").slice();
     } else {
-      this.gridMembers = this.members.filter(m => m.officeId === this.selectedOffice && m.teamId === this.selectedTeam).slice();
+      this.gridMembers = filteredMembers.filter(m => m.calculatedStatus === this.activeFilter).slice();
     }
   }
  

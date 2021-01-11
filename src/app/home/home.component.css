@@ -18,10 +18,6 @@
 .navbar-expand-sm .navbar-nav .nav-link {
     color: #959597;
 }
-a.nav-link:hover {
-	color: #2e55d0;
-	border-bottom: 2px solid #2e55d0;
-}
  a.nav-link.active {
 	color: #2e55d0;
 	border-bottom: 2px solid #2e55d0;
@@ -80,4 +76,10 @@ h4 {
   }
 .custom-control-label {
 	width: 30px;
+}
+.tableStatus {
+
+}
+.navbar-expand-sm .navbar-nav .nav-link {
+    cursor: pointer;
 }

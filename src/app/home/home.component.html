@@ -1,19 +1,19 @@
 <nav class="container navbar navbar-expand-sm bg-light justify-content-center">
   <ul class="navbar-nav">
     <li class="nav-item grey">
-      <a class="nav-link active" href="">All {{allMemberStatusCount}}</a>
+      <a class="nav-link" [ngClass]="activeFilter === 'all' ? 'active' : ''" (click)="onFilterStatusClick('all')">All {{allMemberStatusCount}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" click="">Lead {{leadMemberStatusCount}}</a>
+      <a class="nav-link" [ngClass]="activeFilter === 'lead' ? 'active' : ''" (click)="onFilterStatusClick('lead')">Lead {{leadMemberStatusCount}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Drop-In {{dropInMemberStatusCount}}</a>
+      <a class="nav-link" [ngClass]="activeFilter === 'dropIn' ? 'active' : ''" (click)="onFilterStatusClick('dropIn')">Drop-In {{dropInMemberStatusCount}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Active {{activeMemberStatusCount}}</a>
+      <a class="nav-link" [ngClass]="activeFilter === 'active' ? 'active' : ''" (click)="onFilterStatusClick('active')">Active {{activeMemberStatusCount}}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Former {{formerMemberStatusCount}}</a>
+      <a class="nav-link" [ngClass]="activeFilter === 'former' ? 'active' : ''" (click)="onFilterStatusClick('former')">Former {{formerMemberStatusCount}}</a>
     </li>
   </ul>
   <div class="navbar-nav-right ml-auto">
@@ -24,16 +24,17 @@
 <div class="container wrapper">
 	<div class="row status-filter">
 		<form class="form-inline">
+      <i class="fa fa-search"></i>
 			<div class="input-group">                    
 				<input type="text" class="form-control" placeholder="Search">
 				<div class="input-group-append">
-					<i class="fa fa-search"></i>
+					
 					<button type="button" class="btn btn-secondary"></button>
 				</div>
 			</div>
 		</form>
 		<div class="">
-			<button type="button" (click)="onFilterGrid($event)" class="btn btn-filter">Filters</button>	
+			<button type="button" (click)="onFilterGrid()" class="btn btn-filter">Filters</button>	
 		</div>
  
 		<div class="toolbar">
@@ -88,7 +89,7 @@
               <span>{{member.name}}</span>
             </td>
             <td>{{member.teamName}}</td>
-            <td>{{member.calculatedStatus}}</td>
+            <td class="table-status">{{member.calculatedStatus}}</td>
             <td>{{member.createdAt | date : 'dd-MM-yyyy'}}</td>
             <td>{{member.officeName}}</td>
           </tr>
